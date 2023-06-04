@@ -28,5 +28,6 @@ namespace Fix_Changing_Unreasonable_Volume
 
             mic.AudioEndpointVolume.OnVolumeNotification += AudioEndpointVolume_OnVolumeNotification; // Subscribe to Volume Notification events
         }
+        // add version tag
     }
 }
