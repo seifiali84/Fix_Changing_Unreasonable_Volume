@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fix_Changing_Unreasonable_Volume", "Fix_Changing_Unreasonable_Volume\Fix_Changing_Unreasonable_Volume.csproj", "{751E62D4-7CBC-440F-A15D-DBF73EA138F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{751E62D4-7CBC-440F-A15D-DBF73EA138F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751E62D4-7CBC-440F-A15D-DBF73EA138F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751E62D4-7CBC-440F-A15D-DBF73EA138F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751E62D4-7CBC-440F-A15D-DBF73EA138F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02B7F6E4-1C94-4BBD-8E70-664AA55031F8}
+	EndGlobalSection
+EndGlobal
