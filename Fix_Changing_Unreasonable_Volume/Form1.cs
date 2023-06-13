@@ -17,8 +17,7 @@ namespace Fix_Changing_Unreasonable_Volume
 
             speakers.AudioEndpointVolume.MasterVolumeLevelScalar = 1.0f; // Set speaker volume level to maximum (1.0f)
 
-            Console.WriteLine("Microphone volume changed - Speakers set to Max Volume!");
-            Console.Beep();   // Play sound notification when speaker volumes are set at max.
+            Console.WriteLine("Microphone volume changed - Speakers set to Max Volume!"); // Play sound notification when speaker volumes are set at max.
 
         }
         private void button1_Click(object sender, EventArgs e)
