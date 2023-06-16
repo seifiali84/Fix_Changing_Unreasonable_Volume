@@ -28,6 +28,20 @@ namespace Fix_Changing_Unreasonable_Volume
 
             mic.AudioEndpointVolume.OnVolumeNotification += AudioEndpointVolume_OnVolumeNotification; // Subscribe to Volume Notification events
         }
+        string path = "data/data.csv";
+        private bool GetStartup()
+        {
+            string[] Lines = File.ReadAllLines(path);
+            if (Lines[0].Split(',')[1] == "True")
+                return true;
+            else
+                return false;
+        }
+        private void ChangeStartup(bool data)
+        {
+            string[] Lines = { "Startup," + data.ToString() };
+            File.WriteAllLines(path, Lines);
+        }
         bool programChange = false;
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
