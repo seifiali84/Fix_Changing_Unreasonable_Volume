@@ -1,4 +1,5 @@
 using System.Data;
+using Microsoft.Win32;
 using NAudio.CoreAudioApi;
 
 namespace Fix_Changing_Unreasonable_Volume
@@ -17,8 +18,8 @@ namespace Fix_Changing_Unreasonable_Volume
 
             speakers.AudioEndpointVolume.MasterVolumeLevelScalar = 1.0f; // Set speaker volume level to maximum (1.0f)
 
-            Console.WriteLine("Microphone volume changed - Speakers set to Max Volume!"); // Play sound notification when speaker volumes are set at max.
-
+            Console.WriteLine("Microphone volume changed - Speakers set to Max Volume!");
+             
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,43 @@ namespace Fix_Changing_Unreasonable_Volume
 
             mic.AudioEndpointVolume.OnVolumeNotification += AudioEndpointVolume_OnVolumeNotification; // Subscribe to Volume Notification events
         }
-        // add version tag
+        bool programChange = false;
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (programChange)
+            {
+                programChange = false;
+            }
+            else
+            {
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (checkBox1.Checked)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure to make this Program Startup?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        rk.SetValue(Application.ProductName, Application.ExecutablePath);
+                    }
+                    else
+                    {
+                        programChange = true;
+                        checkBox1.Checked = false;
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("do you need to Disable Startup this Program?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        rk.DeleteValue(Application.ProductName, false);
+                    }
+                    else
+                    {
+                        programChange = true;
+                        checkBox1.Checked = true;
+                    }
+                }
+            }
+        }
     }
 }
