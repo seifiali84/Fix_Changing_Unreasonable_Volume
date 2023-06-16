@@ -58,6 +58,7 @@ namespace Fix_Changing_Unreasonable_Volume
                     if (result == DialogResult.Yes)
                     {
                         rk.SetValue(Application.ProductName, Application.ExecutablePath);
+                        ChangeStartup(true);
                     }
                     else
                     {
@@ -71,6 +72,7 @@ namespace Fix_Changing_Unreasonable_Volume
                     if (result == DialogResult.Yes)
                     {
                         rk.DeleteValue(Application.ProductName, false);
+                        ChangeStartup(true);
                     }
                     else
                     {
@@ -78,6 +80,16 @@ namespace Fix_Changing_Unreasonable_Volume
                         checkBox1.Checked = true;
                     }
                 }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            bool Startup = GetStartup();
+            if (Startup != checkBox1.Checked)
+            {
+                programChange = true;
+                checkBox1.Checked = !checkBox1.Checked;
             }
         }
     }
